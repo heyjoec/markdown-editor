@@ -104,3 +104,18 @@ added 160 packages from 139 contributors and audited 252 packages in 34.542s
 
 found 0 vulnerabilities
 
+How to change it to use ssh key?
+Currently
+$ git remote -v
+origin  https://github.com/heyjoec/markdown-editor.git (fetch)
+origin  https://github.com/heyjoec/markdown-editor.git (push)
+Answer - see https://kamarada.github.io/en/2019/07/14/using-git-with-ssh-keys/#.YBieM-j7Q2w
+
+
+$ git remote set-url origin git@github.com:heyjoec/markdown-editor.git
+
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (main)
+$ git remote -v
+origin  git@github.com:heyjoec/markdown-editor.git (fetch)
+origin  git@github.com:heyjoec/markdown-editor.git (push)
+
