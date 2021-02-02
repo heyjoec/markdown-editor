@@ -11,9 +11,19 @@
     <script src="./node_modules/simplemde/dist/simplemde.min.js"></script>
 </head>
 <body>
-    <P>TOP</P>
+    <style>
+        html, body {
+            height: 100%;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+        }
+
+        .CodeMirror {
+            flex: 1;
+        }
+    </style>
     <textarea id="editor"></textarea>
-    <P>BOTTOM</P>
       
     <script>
         var editor = new SimpleMDE({ 
