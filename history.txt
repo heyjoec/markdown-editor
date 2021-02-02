@@ -122,3 +122,22 @@ origin  git@github.com:heyjoec/markdown-editor.git (push)
 Also, did this
 	git config --global core.safecrlf false
 to remove the warning about converting LF
+
+Now it runs
+npm start
+
+Nextstep - Integrating the editor component
+
+npm install simplemde
+
+npm WARN markdown-editor@1.0.0 No description
+npm WARN markdown-editor@1.0.0 No repository field.
+
++ simplemde@1.11.2
+added 5 packages from 921 contributors and audited 257 packages in 5.905s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+$
