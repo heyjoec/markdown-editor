@@ -1,0 +1,475 @@
+Building Your First Electron Application
+The goal of this book is to provide you with practical experience and guide you through setting up, configuring, building, and distributing Electron applications. You are going to learn how to build multiple projects, address common challenges and pitfalls, and how to integrate with modern JavaScript frameworks and underlying toolchains.
+
+In this chapter, you are going to get a brief overview of the Electron framework, its history, and its architecture. You will learn how to get all the prerequisites installed for multiple platforms, get your first Electron project up and running with Node.js and NPM, and learn how the apps are packaged for various platforms.
+
+By the end of this chapter, you should have a basic project template so that you can complete future practical tasks.
+
+In this chapter, we will cover the following topics:
+
+What is Electron?
+Preparing a development environment
+Creating a simple application
+Packaging for multiple platforms
+
+Technical requirements
+To get started with Electron application development, you will need a standard laptop or desktop that's running macOS, Windows, or Linux.
+
+Before we dive into Electron development, we need to prepare the prerequisites for your platform of choice. We are going to focus on all the major platforms, that is, macOS, Ubuntu (Linux), and Windows.
+
+To get started, we need the following software:
+
+Git, a version control system
+Node.js with Node Package Manager (NPM)
+Visual Studio Code, a free and open-source code editor
+You can find the code files for this chapter on GitHub at https://github.com/PacktPublishing/Electron-Projects/tree/master/Chapter01.
+
+What is Electron?
+Electron is an open-source framework for building cross-platform applications with the modern web technology stack: HTML, CSS, and JavaScript.
+
+It is developed and maintained by GitHub Inc. and has had an active community of contributors since it appeared and was released on July 15, 2013 (its first commit appeared in April 2013) as part of the Atom editor, a free and open-source code editor for Linux, Windows, and macOS. Initially, it was called Atom Shell until GitHub renamed it Electron and started shipping it as a separate project.
+
+The secret sauce of Electron is a combination of Chromium, an open-source project behind the Google Chrome browser and Google Chrome OS, and Node.js, a JavaScript runtime built on Chrome's V8 JavaScript engine.
+
+Electron uses Chromium for the frontend and Node.js for the backend. It provides a rich set of application programming interfaces (APIs) that allow developers to build cross-platform applications that share the same HTML, CSS, and JavaScript code. Also, Electron provides us with access to operating system resources and specific platform features and supports thousands of JavaScript libraries and utilities that you can use with the Node.js portion of the application.
+
+Since its release, the Electron framework has won the hearts of all web and desktop developers. Many popular applications have been built with Electron that you may have used in the past or are using daily, such as Skype, Slack, WhatsApp, Discord, Signal, Visual Studio Code, Microsoft Teams, Keybase, and many others. Please check out the official list of Electron-based applications that are featured online at https://electronjs.org/apps—it has more than 700 entries and counting.
+
+Preparing a development environment
+In this section, we are going to look at the setup process for each operating system. You can skip the sections that do not correspond to your current platform. Note, however, that you may still need to have multiple operating systems available in case you ever want to test how the packaging and deployment of your applications work across all platforms.
+
+Keep in mind that most of the code for the application projects in this book are universal; the blocks or steps that are different for a particular system will be highlighted and explained.
+
+Installing Visual Studio Code
+We are going to be using Visual Studio Code for all the projects and examples in this book. It's a free, open-source, and cross-platform code editor based on Electron. However, feel free to use Atom, Sublime, Vim, or any other editor of your choice.
+
+Setting up Visual Studio Code is very simple and, thanks to Electron's support, the process doesn't differ much across platforms. Let's get started:
+
+Navigate to https://code.visualstudio.com/. An installation package will be suggested to you regarding your current operating system. It is also possible to choose from a list of available distributions:
+
+
+Click the big Download button to get a .dmg installer for macOS, an .msi file for Windows, or a .deb package for Debian-based Linux distributions.
+Run the corresponding file and follow the on screen instructions. You don't need to customize anything during the setup process.
+If you are using or plan to use Ubuntu Linux for development purposes, the process is slightly easier than it is for other operating systems.
+
+Installing Visual Studio Code for Ubuntu
+If you are using Ubuntu Linux as your primary development machine, you can download Visual Studio Code from the Ubuntu Software Center. Just type code or visual studio code into the search box—you should get the link to the corresponding package.
+
+Note that there is also an Insiders Version for Visual Studio Code. This version is updated daily and is for experienced developers that want to see the latest features. If you are getting started with Visual Studio Code, then it is better to stick to the regular version as it is usually more stable than the Insiders edition.
+Setting up the environment for macOS
+This section describes how to install and configure the required software for macOS. Feel free to skip this section if you are using a Linux or Windows platform.
+
+Installing Git on macOS
+Git comes preinstalled with all macOS versions. To verify this, launch the Terminal application and run the following command:
+
+Copy
+git --version
+The output should be similar to the following:
+
+Copy
+git version 2.17.2 (Apple Git-113)
+Please note that it isn't critical if your system's version of Git doesn't match the one in this example.
+Installing Node.js on macOS
+Next, let's install Node.js and NPM using the following steps. You can find the necessary installation packages by navigating to https://nodejs.org:
+
+Note that Node.js typically comes in two flavors: the Long-Term Support (LTS) version, which is suitable for most users, and the Current version, which provides the most cutting-edge features and enhancements.
+First, we need to download and install Node.js. The website automatically detects your browser and platform and suggests the appropriate packages for you to download. For macOS, you are going to see the Download for macOS (x64) label and two big download buttons, as shown in the following screenshot:
+
+
+Choose any version and click the corresponding button to get the relevant installer package. The installation process for the macOS platform is pretty straightforward. Keep all the default settings; proceed with the wizard's steps until the setup is over.
+In the Terminal application, run the following commands to verify that you have Node.js and NPM installed on your machine:
+Copy
+      node -v
+      npm -v
+The system's output should be similar to the following, though their versions may vary:
+Copy
+      v12.13.0
+      6.12.1
+Congratulations! You've successfully installed Node.js on your macOS.
+
+Setting up the environment for Ubuntu Linux
+In this section, we are going to use the latest Ubuntu desktop version, 18.10, though previous LTS versions should also run fine. You can skip this section and jump to the Windows or macOS setup section if you don't use Linux. However, you may find this section useful once you start testing cross-platform deployment for your Electron applications.
+
+Installing Git on Ubuntu
+You can check whether you have Git installed by running the following command:
+
+Copy
+git --version
+Typically, Git is not present on fresh installations of Ubuntu. To get it, run the following command:
+
+Copy
+sudo apt install -y git
+Please note that you need to enter the administrator password to proceed.
+Installing Node.js on Ubuntu
+Ubuntu usually doesn't ship with the Node.js and NPM tools out of the box. You need to install them separately.
+
+To install Node.js, follow these steps:
+
+Run the following command:
+Copy
+      sudo apt install -y nodejs
+Now, we need to verify that Node.js has been installed. You can check the version that you've installed in the Terminal application by using the following command:
+Copy
+      node --version
+The system's output, which will be the version's value, will be v8.11.4 or higher.
+
+To install NPM, follow these steps:
+
+Use the following command:
+Copy
+      sudo apt install -y npm
+The fastest way to check that NPM has been installed is to check its version. You can do so by using the following command:
+Copy
+      npm --version
+The version number should be 5.8.0 or higher.
+
+Setting up the environment for Windows
+In this section, we are going to walk through the installation process for Windows 10.
+
+Installing Git on Windows
+I recommend installing Git after Visual Studio Code because the Git setup wizard allows you to enable integration between the two.
+
+The process of installing Git on Windows 10 is slightly different compared to macOS and Ubuntu. Follow these steps to install it:
+
+Navigate to https://git-scm.com. The website will detect your platform and suggest a proper distribution.
+Click the button that says Download 2.20.1 for Windows, wait for the file to download, and run the installer package.
+The Git installer for Windows sets all the respective defaults for you. Just proceed with the questions until you reach the Select Components dialog.
+I suggest checking the Use a TrueType font in all console windows option, as shown in the following screenshot:
+
+
+This is optional, but it helps improve readability slightly.
+
+Follow the installation steps and use the predefined settings until you get to the Choosing the default editor used by Git dialog.
+If you have already installed Visual Studio Code, I strongly recommend selecting the Use Visual Studio Code as Git's default editor option from the drop-down list, as shown in the following screenshot:
+
+
+Accept all the defaults in the subsequent dialogs until the setup is over.
+Installing Node.js on Windows
+Once Visual Studio Code and Git are ready, we can install Node.js and NPM on Windows:
+
+Navigate to https://nodejs.org/en and get the corresponding installer. Note that the website detects your platform for you and suggests the corresponding installer package. For Windows, you are going to see the Download for Windows (x64) label and two buttons where you can select either the LTS, that is, the stable LTS version, or a current one, with the most recent cutting-edge features.
+Download and run the installation file. Proceed with the setup wizard and use the default settings—these are usually pretty reasonable.
+Optionally, in the Tools for Native Modules dialog, you can allow the automatic installation of a set of the tools so that you can compile native modules. This is shown in the following screenshot:
+
+
+
+The option for the native module instructs the setup wizard to download and configure all the necessary tooling after the installation of Node.js is over.
+
+Please note that the extra tools require about 3 GB of additional space on your disk and may take a few minutes to install. However, I recommend installing those tools as you may come across third-party modules and libraries for the system's integration that require those tools.
+Alternatively, you can always download the latest copy of the Node.js installer again, go through the setup wizard steps, and check the Tools for Native Modules option if you forgot to do that previously.
+
+Verifying the installation
+Launch the Command Prompt utility and execute the following two commands to ensure that both Node.js and NPM are present on your machine:
+
+Copy
+node --version
+npm --version
+You should receive the following system output:
+
+Copy
+v12.13.0
+6.12.1
+Please note that your versions may vary, depending on the last published packages you downloaded. At the time of writing, it is essential to get any output for each command to prove the tool is there, rather than a version value.
+In this section, we covered the installation of Node.js and NPM for the Windows, macOS, and Linux systems so that you can start creating a simple application project. In the next section, we are going to walk through the minimal configuration process to help you get started.
+
+
+ You're currently viewing a free sample. Start a free trial to access the full title and Packt library.
+Creating a simple application
+Let's walk through a typical hello world application with Electron, package it, and see it running on all platforms. Let's get started:
+
+Somewhere in your projects folder, create a new directory called my-first-app and navigate to it, as shown in the following code:
+Copy
+      mkdir my-first-app
+      cd my-first-app
+Now, we need to initialize our new project with the NPM tool by using the following command:
+Copy
+      npm init
+The tool asks a series of questions, such as the name of the project, a user-friendly description, version, author information, and a license. Feel free to enter any details you want. For our first example project, you can specify any values you want.
+Next time, if you want to set up quickly with a single command and with reasonable defaults, you can use the same command with the -y switch. This switch, as shown in the following code, instructs NPM to accept all the questions and use predefined values:
+
+Copy
+npm init -y
+This tool generates the following file, called package.json:
+
+Copy
+{
+  "name": "my-first-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
+Feel free to update the description, author, license, or other fields as necessary.
+
+Please note that the value of the main field is index.js. This means that the primary entry point for NPM commands and your Electron app is going to be that file. We are going to create it shortly, but, first, let's install the Electron framework library for our project:
+
+Run the following command:
+Copy
+      npm i -D electron
+If you take a look at the package.json file, you may notice a new section called devDependencies, which has an Electron library. Its version may vary, depending on Electron's release frequency:
+Copy
+      {
+         "devDependencies": {
+          "electron": "^7.0.0"
+        }
+      }
+Now, it's time to get back to the index.js file. Create it in the root folder of your project, next to the package.json file.
+Let's take a closer look at the minimum code you need to run an Electron window. The following snippet demonstrates the steps we have to perform in the index.js file:
+Copy
+ // 1. import electron objects
+ const { app, BrowserWindow } = require('electron');
+ 
+ // 2. reserve a reference to window object
+ let window;
+
+ // 3. wait till application started
+ app.on('ready', () => {
+ // 4. create a new window
+ window = new BrowserWindow({
+ width: 800,
+ height: 600,
+ webPreferences: {
+ nodeIntegration: true
+ }
+ });
+ 
+ // 5. load window content
+ window.loadFile('index.html');
+ });
+First, you need to import the required objects and classes from the electron namespace. Then, reserve a reference to an object or the BrowserWindow type that you are going to instantiate and display to your users. After that, you need to wait for the application to become ready and create a small window that's 800 x 600 in size. Finally, load and display the content of the index.html file, which contains the main content of your Electron application.
+
+Now, we need to define the main application's content in the form of an HTML page. Create a new index.html file next to the package.json and index.js files. With Visual Studio Code, it is effortless to generate an initial web page. Just type an exclamation mark, !—the code editor will auto suggest a template for you to use:
+
+
+Press the Tab or Enter key. Visual Studio Code will generate and fill in the HTML page's content in the place of your cursor. It even moves the cursor inside the body element so that you can continue working on the markup:
+Copy
+      <!DOCTYPE html>
+      <html lang="en">
+        <head>
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width, 
+                                         initial-scale=1.0" />
+          <meta
+            http-equiv="Content-Security-Policy"
+            content="script-src 'self' 'unsafe-inline';"
+          />
+          <title>Document</title>
+        </head>
+        <body>
+          
+        </body>
+      </html>
+Let's put the traditional Hello World example between the body tags so that we can inspect the Electron component's versions:
+Copy
+      <h1>Hello World!</h1>
+      We are using node <script>document.write(process.versions.node)
+      </script>,
+      Chrome <script>document.write(process.versions.chrome)
+      </script>,
+      and Electron <script>document.write(process.versions.electron)
+      </script>.
+We are going to see the versions of Node.js that are powering our application, our embedded version of Chrome, and, of course, the Electron library version.
+
+The final step of the initial setup is to update the package scripts. Update the package.json file and add the start entry for the scripts section to invoke the Electron binary app against our project folder, as shown in the following code:
+Copy
+      "scripts": {
+        "start": "electron ."
+      }
+To launch, develop, and test the application, we only need to run npm start from the command line. If you need to add more parameters, you can always update the script once again—there's no need to memorize long commands.
+
+The content of your package.json file should look like this:
+Copy
+      {
+        "name": "my-first-app",
+        "version": "1.0.0",
+        "description": "",
+        "main": "index.js",
+        "scripts": {
+          "start": "electron ."
+        },
+        "keywords": [],
+        "author": "",
+        "license": "ISC",
+        "devDependencies": {
+          "electron": "^7.0.0"
+        }
+      }
+You are now ready to launch your first Electron application. Let's get started:
+
+In the application menu of Visual Studio Code, select View and then Terminal to access the embedded Terminal tool.
+Run the start command, as shown in the following code:
+Copy
+      npm start
+Congratulations! You now have your first Electron application up and running:
+
+
+
+If you want to stop the application, press Ctrl + C in the Terminal window.
+
+Now that we have a new application up and running, let's understand how our application will be packaged for different platforms.
+
+
+Packaging for multiple platforms
+Please note that running on all platforms does not necessarily mean that you can test and run all the installation packages on a single platform. This means you cannot, for example, launch Windows installers on Linux, or macOS installers on Windows. You may need to have access to either real machines with their respective platforms, or virtual machines, running with VirtualBox, Parallels, or any other modern virtualization software.
+
+There are many community tools that you can use to build and package Electron applications for production. We are going to use electron-builder (https://www.electron.build/) for this purpose.
+
+According to its documentation, electron-builder is as follows:
+
+A complete solution to package and build a ready for distribution—Electron app for macOS, Windows, and Linux with auto update support out of the box.
+The list of supported features is outstanding; it is recommended that you take a look at the documentation of electron-builder if you want to find out more.
+With this tool, for example, you can create distribution packages for all platforms when developing only on macOS, or any other platform.
+
+Before we continue, let's install it for our project with the following command:
+
+Copy
+npm i -D electron-builder
+Now, let's look at how we can set up the packaging scripts, depending on your target platform. We are going to package our Electron application for macOS, Ubuntu Linux, and Windows 10 with a minimal set of configuration parameters.
+
+Packaging for macOS
+If you intend to publish our application to the App Store, you should provide an application ID and category settings. Open the project's package.json file for editing, and append the following section to the end of the file:
+
+Copy
+{
+  "build": {
+    "appId": "com.my.app.id",
+    "mac": {
+      "category": "public.app-category.utilities"
+    }
+  }
+}
+Feel free to customize the values and provide the relevant information later. For now, you can leave those values as they are.
+
+There are two ways you can build your application: through the development and production modes. Let's start with the development script, which allows you to quickly run and see that your application is working as expected:
+
+Update the package.json file and add the build:macos entry to the scripts section, as shown in the following code:
+Copy
+      {
+         "scripts": {
+          "start": "electron .",
+          "build:macos": "electron-builder --macos --dir"
+        }
+      }
+Just like the npm start command we used earlier, you can customize all the parameters in a single place. You only need to remember and document a simple command npm run build:macos.
+
+To build the application for development, open the Terminal window in VS Code and run the build:macos script, as follows:
+Copy
+      npm run build:macos
+After a few seconds, you will see the build's output in the dist/mac folder:
+
+
+Double-click on the icon to run your simple Electron application locally.
+Let's also add the necessary script so that we can create production or distribution packages. Append the dist:macos entry to the scripts section, as shown in the following code:
+Copy
+      {
+        "scripts": {
+          "start": "electron .",
+          "build:macos": "electron-builder --macos --dir",
+          "dist:macos": "electron-builder --macos"
+        }
+      }
+Now, you have two scripts that handle running and packaging on your macOS machine.
+
+Running the dist:macos script takes a bit longer than the build:macos one. After running the script, you get several different packages in the dist folder of your project: my-first-app-1.0.0.dmg, a typical macOS installer; my-first-app-1.0.0-mac.zip, an archived installer so that you can distribute it easily; and, of course, mac/my-first-app, which includes the ready-to-launch application:
+
+
+
+Try running the .dmg file; you should see the typical macOS installer:
+
+Please refer to the electron-builder documentation for ideas and tips on how to customize it: https://www.electron.build/configuration/dmg.
+
+
+Congratulations—you've got your first cross-platform Electron application installer up and running on macOS!
+
+Packaging for Ubuntu
+The process of packaging your application for Ubuntu doesn't differ much from that of macOS. Let's get started:
+
+You need to provide an application identifier and a category in the linux section of the package.json file:
+Copy
+      {
+         "build": {
+          "appId": "com.my.app.id",
+          "linux": {
+            "category": "Utility"
+          }
+        }
+      }
+Please note that you can declare settings for Linux alongside those for other platforms, which is handy when you're developing for multiple operating systems or switching between them. The same applies to the scripts section. In this book, we are going to use different script names so that you can merge them into a single configuration.
+Update your package.json file and append the following scripts to it so that you can build your application in development mode and distribution mode:
+Copy
+      {
+         "scripts": {
+          "start": "electron .",
+          "build:linux": "electron-builder --linux --dir",
+          "dist:linux": "electron-builder --linux"
+        }
+      }
+Let's ensure that we can build the application for local testing. Run the first script in the Terminal window:
+Copy
+      npm run build:linux
+In the project's root, you should see the dist/linux-unpacked folder, which contains several build artifacts:
+
+
+Now, let's see what you get when you're building packages for distribution. Run the second command, as shown in the following code:
+Copy
+      npm run dist:linux
+This time, you are going to get multiple packages in the dist folder, as shown in the following screenshot:
+
+
+The files that will be in your output folder are as follows:
+
+my-first-app 1.0.0.AppImage: The AppImage format is a universal software packaging format for all GNU/Linux distros.
+my-first-app_1.0.0_amd64.snap: This is a snap file, another popular format for sandboxed applications.
+linux-unpacked/my-first-app: This is the unpacked build for local testing and custom distributions.
+For now, double-click on my-first-app 1.0.0.AppImage to run the app. If you get the Would you like to integrate my-first-app with your system dialog, click No.
+This will be your final output:
+
+
+Congratulations—you've got your first cross-platform Electron application package up and running on Ubuntu Linux!
+
+Packaging for Windows
+Now that you know how to set up build scripts for macOS and Ubuntu Linux, configuring for Windows shouldn't be a problem for you.
+
+As I mentioned earlier, it is possible and also recommended to keep the configuration files for all platforms in a single code repository, inside the package.json file. The build scripts for Windows are shown in the following code:
+
+Copy
+{
+   "scripts": {
+    "start": "electron .",
+    "build:windows": "electron-builder --win --dir",
+    "dist:windows": "electron-builder --win"
+  }
+}
+Both scripts should be familiar to you. The build:windows script creates an unpacked local build for development and testing purposes, while the dist:windows script prepares the application for distribution.
+
+Let's try to build and run the development version of the application:
+
+Open the Terminal window in Visual Studio Code, or a Command Prompt tool, and run the following script:
+Copy
+      npm run build:windows
+Note that you can build Windows packages with macOS or Ubuntu Linux if you have the Wine tool installed, but I recommend having a virtual machine nearby for testing purposes. It should also be possible to build for Linux on a Windows machine, but you may want to have a real Linux machine for application testing purposes.
+Once the script exits, you should see the prebuilt application, that is, my-first-app.exe, in the dist/win-unpacked folder.
+Double-click on the my-first-app.exe file to run the application:
+
+
+We need to use the build:windows script to create a distribution package for testing purposes. Let's check that we can build packages for redistribution:
+Copy
+      npm run dist:windows
+Check the dist folder once again. You should see the my-first-app Setup 1.0.0.exe installer file alongside the win-unpacked folder:
+
+
+Now, double-click the installer file. The setup wizard should set up the application and automatically launch it.
+Congratulations—you've got your first cross-platform Electron application package up and running on Windows 10!
+
+Summary
+In this chapter, we walked through a brief history of Electron and learned how to configure a development environment on popular platforms such as macOS, Windows, and Ubuntu Linux. You also looked at the various configuration options you can implement for your Electron applications so that you can build, distribute, and run them on the corresponding platforms.
+
+As you can see, not just the applications that are built with the Electron framework are cross-platform—the development process is nearly identical too, thanks to Node.js and NPM. You can work on a single platform and even build distribution packages for other platforms, though you usually need to have access to real or virtual machines to run and test apps.
+
+In the next chapter, we are going to focus on application development and our first project implementation. We are going to build a markdown editor project so that you can understand how a web application can be integrated with the desktop shell.
+
