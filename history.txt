@@ -27,67 +27,79 @@ $ cat package.json
 		      "license": "ISC"
 		      }
 
-		      Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor
-		      $ git init
-		      Initialized empty Git repository in C:/Users/Joseph Chestnutt/repos/markdown-edi                                    tor/.git/
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor
+$ git init
+Initialized empty Git repository in C:/Users/Joseph Chestnutt/repos/markdown-edi                                    tor/.git/
 
-		      Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
-		      $ git status
-		      On branch master
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
+$ git status
+On branch master
 
-		      Initial commit
+Initial commit
 
-		      Untracked files:
-		        (use "git add <file>..." to include in what will be committed)
+Untracked files:
+(use "git add <file>..." to include in what will be committed)
 
-			        package.json
+	package.json
 
-				nothing added to commit but untracked files present (use "git add" to track)
+nothing added to commit but untracked files present (use "git add" to track)
 
-				Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
-				$ git add package.json
-				warning: LF will be replaced by CRLF in package.json.
-				The file will have its original line endings in your working directory.
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
+$ git add package.json
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory.
 
-				Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
-				$ git commit
-				[master (root-commit) e15ef39] After npm init -y
-				warning: LF will be replaced by CRLF in package.json.
-				The file will have its original line endings in your working directory.
-				 1 file changed, 12 insertions(+)
-				  create mode 100644 package.json
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
+$ git commit
+[master (root-commit) e15ef39] After npm init -y
+warning: LF will be replaced by CRLF in package.json.
+The file will have its original line endings in your working directory.
+	1 file changed, 12 insertions(+)
+	create mode 100644 package.json
 
-				  Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
-				  $ npm i -D electron
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
+$ npm i -D electron
 
-				  > core-js@3.8.3 postinstall C:\Users\Joseph Chestnutt\repos\markdown-editor\node                                    _modules\core-js
-				  > node -e "try{require('./postinstall')}catch(e){}"
+> core-js@3.8.3 postinstall C:\Users\Joseph Chestnutt\repos\markdown-editor\node                                    _modules\core-js
+> node -e "try{require('./postinstall')}catch(e){}"
 
-				  Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfill                                    ing JavaScript standard library!
+Thank you for using core-js ( https://github.com/zloirock/core-js ) for polyfill                                    ing JavaScript standard library!
 
-				  The project needs your help! Please consider supporting of core-js on Open Colle                                    ctive or Patreon:
-				  > https://opencollective.com/core-js
-				  > https://www.patreon.com/zloirock
+The project needs your help! Please consider supporting of core-js on Open Colle                                    ctive or Patreon:
+> https://opencollective.com/core-js
+> https://www.patreon.com/zloirock
 
-				  Also, the author of core-js ( https://github.com/zloirock ) is looking for a goo                                    d job -)
-
-
-				  > electron@11.2.1 postinstall C:\Users\Joseph Chestnutt\repos\markdown-editor\no                                    de_modules\electron
-				  > node install.js
-
-				  npm notice created a lockfile as package-lock.json. You should commit this file.
-				  npm WARN markdown-editor@1.0.0 No description
-				  npm WARN markdown-editor@1.0.0 No repository field.
-
-				  + electron@11.2.1
-				  added 92 packages from 95 contributors and audited 92 packages in 37.643s
-
-				  7 packages are looking for funding
-				    run `npm fund` for details
-
-				    found 0 vulnerabilities
+Also, the author of core-js ( https://github.com/zloirock ) is looking for a goo                                    d job -)
 
 
-				    Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
-				    $
+> electron@11.2.1 postinstall C:\Users\Joseph Chestnutt\repos\markdown-editor\no                                    de_modules\electron
+> node install.js
 
+npm notice created a lockfile as package-lock.json. You should commit this file.
+npm WARN markdown-editor@1.0.0 No description
+npm WARN markdown-editor@1.0.0 No repository field.
+
++ electron@11.2.1
+added 92 packages from 95 contributors and audited 92 packages in 37.643s
+
+7 packages are looking for funding
+run `npm fund` for details
+
+found 0 vulnerabilities
+
+
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (master)
+$
+
+Joseph Chestnutt@DESKTOP-8FHFE1R MINGW64 ~/repos/markdown-editor (main)
+$ npm i -D electron-builder
+npm WARN markdown-editor@1.0.0 No description
+npm WARN markdown-editor@1.0.0 No repository field.
+
++ electron-builder@22.9.1
+added 160 packages from 139 contributors and audited 252 packages in 34.542s
+
+22 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
