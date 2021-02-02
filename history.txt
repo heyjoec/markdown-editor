@@ -119,3 +119,6 @@ $ git remote -v
 origin  git@github.com:heyjoec/markdown-editor.git (fetch)
 origin  git@github.com:heyjoec/markdown-editor.git (push)
 
+Also, did this
+	git config --global core.safecrlf false
+to remove the warning about converting LF
