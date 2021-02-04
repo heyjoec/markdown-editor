@@ -1,6 +1,13 @@
 const { app, Menu, shell } = require('electron');
 
-const template = [
+const { ipcMain } = require('electron');
+const { BrowserWindow } = require('electron');
+
+ipcMain.on('editor-reply', (event, arg) => {
+    console.log(`Received reply from web page: ${arg}`);
+  });
+
+  const template = [
     {
         role: 'help',
         submenu: [
@@ -11,10 +18,25 @@ const template = [
             }
             }
         ]
+    },
+    {
+      label: 'Format',
+      submenu: [
+        {
+          label: 'Toggle Bold',
+          click() {
+            const window = BrowserWindow.getFocusedWindow();
+            window.webContents.send(
+              'editor-event', 
+              'toggle-bold'
+            );
+          }
+        }
+      ]
     }
   ];
 
-    {
+  {
         if (process.platform === 'win32') {
         template.unshift({
           label: app.getName(),

@@ -29,6 +29,19 @@
         var editor = new SimpleMDE({ 
             element: document.getElementById('editor') 
         });
-    </script>
-</body>
+
+        const { ipcRenderer } = require('electron');
+  
+        ipcRenderer.on('editor-event', (event, arg) => {
+          console.log(arg);
+          event.sender.send('editor-reply', `Received ${arg}`);      
+
+          if (arg === 'toggle-bold') {
+                editor.toggleBold();
+              }
+        });
+
+        ipcRenderer.send('editor-reply', 'Page Loaded');
+  </script>
+  </body>
 </html>
