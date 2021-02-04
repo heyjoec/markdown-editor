@@ -11,22 +11,9 @@ const template = [
             }
             }
         ]
-    },
-    {
-        label: 'Debugging',
-        submenu: [
-            {
-                label: 'Dev Tools',
-                role: 'toggleDevTools'
-            },
-      
-            { type: 'separator' },
-            { role: 'reload',
-              accelerator: 'Alt+R'
-            }
-        ]
     }
   ];
+
     {
         if (process.platform === 'win32') {
         template.unshift({
@@ -39,6 +26,25 @@ const template = [
         })
       }
     }
-    const menu = Menu.buildFromTemplate(template);
+
+    if (process.env.DEBUG) {
+        template.push({
+          label: 'Debugging',
+          submenu: [
+            {
+              label: 'Dev Tools',
+              role: 'toggleDevTools'
+            },
+      
+            { type: 'separator' },
+            {
+              role: 'reload',
+              accelerator: 'Alt+R'
+            }
+          ]
+        });
+      }
+
+      const menu = Menu.buildFromTemplate(template);
 
 module.exports = menu;
