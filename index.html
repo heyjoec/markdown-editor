@@ -39,6 +39,12 @@
           if (arg === 'toggle-bold') {
                 editor.toggleBold();
               }
+          if (arg === 'toggle-italic') {
+                editor.toggleItalic();
+              }
+          if (arg === 'toggle-strikethrough') {
+                editor.toggleStrikethrough();
+              }
         });
 
         ipcRenderer.send('editor-reply', 'Page Loaded');
